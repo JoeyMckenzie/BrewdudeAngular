@@ -1,0 +1,14 @@
+{
+  "baseUrl": "https://localhost:5001",
+  "endpoints": {
+    "beer": "/beer",
+    "brewery": "/breweries",
+    "user": "/user",
+    "userBeer": "/userbeer",
+    "userBrewery": "/userbrewery"
+  },
+  "modules": {
+    "public": "/public",
+    "private": "/private"
+  }
+}

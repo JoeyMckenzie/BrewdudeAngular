@@ -1,0 +1,45 @@
+<section fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="" fxFlex="400px" fxFlex.xs="100%">
+
+    <!-- Title -->
+    <mat-card-title fxLayoutAlign="center center">
+      <h3 class="bungee text-center">It's 5 o'clock somewhere</h3>
+    </mat-card-title>
+
+    <!-- Login form -->
+    <form [formGroup]="loginForm" (ngSubmit)="submitUserLogin()" autocomplete="off" novalidate
+          fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <mat-card-content>
+
+        <!-- Username -->
+        <mat-form-field>
+          <input matInput type="text" placeholder="Username" formControlName="username" id="username">
+          <mat-hint align="end">* Required field</mat-hint>
+          <mat-error *ngIf="f.username.errors && f.username.errors.required">Username is required</mat-error>
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field>
+          <span>
+            <input style="position: relative;" matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password" formControlName="password" id="password">
+            <mat-icon *ngIf="hidePassword" (click)="toggleHidePassword()">visibility_off</mat-icon>
+            <mat-icon *ngIf="!hidePassword" (click)="toggleHidePassword()">visibility</mat-icon>
+          </span>
+          <mat-hint align="end">* Required field</mat-hint>
+          <mat-error *ngIf="f.password.errors && f.password.errors.required">Password is required</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+
+      <!-- Create/Cancel buttons -->
+      <mat-card-actions align="center">
+        <button mat-raised-button type="submit" color="primary" [disabled]="!loginForm.valid">Create</button>
+        <button mat-raised-button type="button" color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+    </form>
+
+    <mat-card-footer>
+      <p class="text-center">Don't have an account? <a routerLink="/public/register">Sign up </a> for free!</p>
+    </mat-card-footer>
+  </mat-card>
+</section>
+

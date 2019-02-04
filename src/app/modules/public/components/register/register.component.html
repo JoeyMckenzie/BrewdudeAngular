@@ -1,0 +1,74 @@
+<section fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="" fxFlex="500px" fxFlex.xs="100%">
+
+    <!-- Title -->
+    <mat-card-title fxLayoutAlign="center center">
+      <h3 class="bungee">Ready for a cold one?</h3>
+    </mat-card-title>
+
+    <!-- Register form -->
+    <form [formGroup]="registrationForm" (ngSubmit)="submitUserRegistration()" autocomplete="off" novalidate
+          fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <mat-card-content>
+
+        <!-- First name -->
+        <mat-form-field>
+          <input matInput type="text" placeholder="First Name" formControlName="firstName" id="firstName">
+          <mat-hint align="end">* Required field</mat-hint>
+          <mat-error *ngIf="f.firstName.errors && f.firstName.errors.required">First name is required</mat-error>
+        </mat-form-field>
+
+        <!-- Last name -->
+        <mat-form-field>
+          <input matInput type="text" placeholder="Last Name" formControlName="lastName" id="lastName">
+          <mat-hint align="end">* Required field</mat-hint>
+          <mat-error *ngIf="f.lastName.errors && f.lastName.errors.required">Last name is required</mat-error>
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field>
+          <input matInput type="email" placeholder="Email" formControlName="email" id="email">
+          <mat-hint align="end">* Required field</mat-hint>
+          <mat-error *ngIf="f.email.errors && f.email.errors.required">Email is required</mat-error>
+          <mat-error *ngIf="f.email.errors && f.email.errors.email">Invalid email address</mat-error>
+        </mat-form-field>
+
+        <!-- Username -->
+        <mat-form-field>
+          <input matInput type="text" placeholder="Username" formControlName="username" id="username">
+          <mat-hint align="end">* Required field</mat-hint>
+          <mat-error *ngIf="f.username.errors && f.username.errors.required">Username is required</mat-error>
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field id="passwordField">
+          <span>
+            <input style="position: relative;" matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password" formControlName="password" id="password">
+            <mat-icon *ngIf="hidePassword" (click)="toggleHidePassword()">visibility_off</mat-icon>
+            <mat-icon *ngIf="!hidePassword" (click)="toggleHidePassword()">visibility</mat-icon>
+          </span>
+          <mat-hint align="end">* Must be between 8 and 20 characters and contain: one lowercase, one uppercase, one number, and a special character</mat-hint>
+          <mat-error *ngIf="f.password.errors && f.password.errors.pattern">Password does not meet complexity requirements</mat-error>
+        </mat-form-field>
+
+        <!-- Password confirmation -->
+        <mat-form-field>
+          <input style="position: relative;" matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password confirmation" formControlName="passwordConfirmation" id="passwordConfirmation">
+          <mat-hint align="end">* Required field</mat-hint>
+          <mat-error *ngIf="f.passwordConfirmation.errors && f.passwordConfirmation.errors.required">Password confirmation is required</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+
+      <!-- Create/Cancel buttons -->
+      <mat-card-actions align="center">
+        <button mat-raised-button type="submit" color="primary" [disabled]="!registrationForm.valid">Create</button>
+        <button mat-raised-button type="button" color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+    </form>
+
+    <mat-card-footer>
+      <p class="text-center">Already have an account? <a routerLink="/public/login">Click here</a> to login!</p>
+    </mat-card-footer>
+  </mat-card>
+</section>
+

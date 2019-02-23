@@ -8,13 +8,29 @@ import { RegisterComponent } from './components/register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { LoginComponent } from './components/login/login.component';
-import {UserService} from "../../common/services/user/user.service";
+import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
+import { RegistrationErrorComponent } from './components/registration-error/registration-error.component';
+import { LoginErrorComponent } from './components/login-error/login-error.component';
+import { InProgressComponent } from './components/in-progress/in-progress.component';
+import { BottomSheetRefErrorComponent } from './components/bottom-sheet-ref-error/bottom-sheet-ref-error.component';
 
 @NgModule({
   declarations: [
     PublicComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationSuccessComponent,
+    RegistrationErrorComponent,
+    LoginErrorComponent,
+    InProgressComponent,
+    BottomSheetRefErrorComponent
+  ],
+  entryComponents: [
+    RegistrationSuccessComponent,
+    RegistrationErrorComponent,
+    LoginErrorComponent,
+    InProgressComponent,
+    BottomSheetRefErrorComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +41,6 @@ import {UserService} from "../../common/services/user/user.service";
     ReactiveFormsModule,
   ],
   providers: [
-    UserService
   ]
 })
 export class PublicModule { }

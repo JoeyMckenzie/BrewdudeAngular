@@ -1,0 +1,11 @@
+<div class="text-center">
+  <h1 mat-dialog-title>Registration successful</h1>
+  <div mat-dialog-content>
+    <mat-icon>check_circle</mat-icon>
+  </div>
+  <p>Where to, {{ data.username }}?</p>
+  <div mat-dialog-actions fxLayoutAlign="center center">
+    <button mat-raised-button color="primary" (click)="routeToBeers()">Beers</button>
+    <button mat-raised-button color="primary" (click)="routeToBreweries()">Breweries</button>
+  </div>
+</div>

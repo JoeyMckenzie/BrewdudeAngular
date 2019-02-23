@@ -1,0 +1,130 @@
+<!--<mat-grid-list cols="2" rowHeight="2:1">-->
+  <!--<mat-grid-tile id="beers">-->
+    <!--<h1 routerLink="/secure/beers" class="bungee">Beers</h1>-->
+  <!--</mat-grid-tile>-->
+  <!--<mat-grid-tile id="breweries">-->
+    <!--<h1 class="bungee">Breweries</h1>-->
+  <!--</mat-grid-tile>-->
+  <!--<mat-grid-tile id="register">-->
+    <!--<h1 routerLink="/public/register" class="bungee">Register</h1>-->
+  <!--</mat-grid-tile>-->
+  <!--<mat-grid-tile id="login">-->
+    <!--<h1 routerLink="/public/login" class="bungee">Login</h1>-->
+  <!--</mat-grid-tile>-->
+<!--</mat-grid-list>-->
+
+
+<!--<div class="container">-->
+  <!--<div class="text-center">-->
+    <!--<h1 class="bungee">Brewdude</h1>-->
+    <!--<h3 class="bungee">Beers. Bars. Battlestar Galactica.</h3>-->
+  <!--</div>-->
+
+  <!--<div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="center center" fxLayout.sm="stretch center" fxLayoutGap="3%">-->
+    <!--<mat-card fxFlex="30%">-->
+      <!--<mat-card-header>-->
+        <!--<mat-card-title class="bungee small">What is Brewdude?</mat-card-title>-->
+        <!--<mat-card-subtitle>Funny you should ask...</mat-card-subtitle>-->
+      <!--</mat-card-header>-->
+      <!--<img mat-card-image src="assets/img/beers.jpg" alt="Beers" />-->
+      <!--<mat-card-content class="text-center">-->
+        <!--Brewdude is a website about beer.-->
+      <!--</mat-card-content>-->
+    <!--</mat-card>-->
+    <!--<mat-card fxFlex="30%">-->
+      <!--<mat-card-title class="bungee small">Beer For the People</mat-card-title>-->
+    <!--</mat-card>-->
+    <!--<mat-card fxFlex="30%">-->
+      <!--<mat-card-title class="bungee small">Want to Contribute?</mat-card-title>-->
+    <!--</mat-card>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="container">
+
+  <!-- Header -->
+  <div fxLayout="column" id="header" fxLayoutAlign="center center">
+    <h1 class="bungee">Brewdude</h1>
+    <h4 class="bungee">Beers. Bars. Battlestar Galactica.</h4>
+    <div fxFlex="1 1 100%" *ngIf="currentUser">
+      <!--<div fxLayout="row" fxLayoutAlign="center center">-->
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle>My Beers</mat-button-toggle>
+          <mat-button-toggle>My Breweries</mat-button-toggle>
+        </mat-button-toggle-group>
+      <!--</div>-->
+    </div>
+  </div>
+  <br/>
+
+  <!-- Main -->
+  <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutAlign="center center">
+
+    <!-- Beers -->
+    <!--<div fxFlex="1 1 45%" fxFlexAlign="center">-->
+      <mat-card fxFlex="1 1 40%">
+        <mat-card-header>
+          <mat-card-title class="bungee small">Beers</mat-card-title>
+          <mat-card-subtitle>Small and tall, light or dark</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/img/beers.jpg" alt="Beers" />
+        <mat-card-content>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Find a beer" id="beerInput">
+          </mat-form-field>
+          <button mat-raised-button color="primary">Search</button>
+        </mat-card-content>
+      </mat-card>
+    <!--</div>-->
+
+    <div fxFlex="1 1 5%" fxFlex.lt-md="1 1 10%"></div>
+    <span fxHide.gt-sm="true"><br/></span>
+
+    <!-- Breweries -->
+    <!--<div fxFlex="1 1 45%">-->
+      <mat-card fxFlex="1 1 40%">
+        <mat-card-header>
+          <mat-card-title class="bungee small">Breweries</mat-card-title>
+          <mat-card-subtitle>Across the street, or across the country</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/img/breweries.jpg" alt="Beers" />
+        <mat-card-content>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Find a brewery" id="breweryInput">
+          </mat-form-field>
+          <button mat-raised-button color="primary">Search</button>
+        </mat-card-content>
+      </mat-card>
+    <!--</div>-->
+
+    <!-- About -->
+    <!--<mat-card fxFlex="30%">-->
+      <!--<mat-card-header>-->
+        <!--<mat-card-title class="bungee small">What is Brewdude?</mat-card-title>-->
+        <!--<mat-card-subtitle>Funny you should ask...</mat-card-subtitle>-->
+      <!--</mat-card-header>-->
+      <!--<img mat-card-image src="assets/img/login.jpg" alt="Beers" />-->
+      <!--<mat-card-content>-->
+        <!--<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5%">-->
+          <!--<button mat-stroked-button color="accent" routerLink="/">About</button>-->
+          <!--<button mat-stroked-button color="accent" routerLink="/">About</button>-->
+          <!--<button mat-stroked-button color="accent" routerLink="/">About</button>-->
+        <!--</div>-->
+      <!--</mat-card-content>-->
+    <!--</mat-card>-->
+  <!-- Footer -->
+  <!--<div fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="center center" fxHide.lt-md="true" id="footers">-->
+    <!--<div id="footer1" fxFlex="1 1 33%">-->
+      <!--<h1>Footer 1</h1>-->
+    <!--</div>-->
+    <!--<div id="footer2" fxFlex="1 1 33%">-->
+      <!--<h1>Footer 2</h1>-->
+    <!--</div>-->
+    <!--<div id="footer3" fxFlex>-->
+      <!--<h1>Footer 3</h1>-->
+    <!--</div>-->
+  <!--</div>-->
+  <br/>
+  </div>
+</div>
+

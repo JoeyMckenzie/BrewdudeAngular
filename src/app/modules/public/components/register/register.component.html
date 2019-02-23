@@ -56,6 +56,7 @@
           <input style="position: relative;" matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password confirmation" formControlName="passwordConfirmation" id="passwordConfirmation">
           <mat-hint align="end">* Required field</mat-hint>
           <mat-error *ngIf="f.passwordConfirmation.errors && f.passwordConfirmation.errors.required">Password confirmation is required</mat-error>
+          <mat-error *ngIf="f.passwordConfirmation.errors && f.passwordConfirmation.errors.mustMatch">Your password must match with the password above</mat-error>
         </mat-form-field>
       </mat-card-content>
 
@@ -63,6 +64,8 @@
       <mat-card-actions align="center">
         <button mat-raised-button type="submit" color="primary" [disabled]="!registrationForm.valid">Create</button>
         <button mat-raised-button type="button" color="warn" (click)="onCancel()">Cancel</button>
+        <button mat-raised-button type="button" color="primary" (click)="openInProgressDialog('Checking with the bartenders...')">Dialog</button>
+        <button mat-raised-button type="button" color="accent" (click)="testRegistrationError()">Test Error</button>
       </mat-card-actions>
     </form>
 

@@ -1,4 +1,4 @@
-export interface Configuration {
+export interface BrewdudeConfiguration {
   baseUrl: string;
   endpoints: {
     beer: string;

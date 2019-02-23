@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Configuration} from "../../models/configuration";
 import {HttpClient} from "@angular/common/http";
+import {BrewdudeConfiguration} from "../../models/brewdude-configuration";
 
 const CONFIG = "./assets/configuration/endpoints.json";
 
@@ -8,10 +8,10 @@ const CONFIG = "./assets/configuration/endpoints.json";
   providedIn: 'root'
 })
 export class ConfigurationService {
-  private _configuration: Configuration;
+  private _configuration: BrewdudeConfiguration;
 
   constructor(private http: HttpClient) {
-    this.http.get<Configuration>(CONFIG).subscribe(data => {
+    this.http.get<BrewdudeConfiguration>(CONFIG).subscribe(data => {
       this._configuration = data;
       console.log(this._configuration);
     });

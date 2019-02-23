@@ -1,21 +1,21 @@
 h1:hover {
   cursor: pointer;
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  transform: scale(1.2);
+  //-webkit-transform: scale(1.2);
+  //-moz-transform: scale(1.2);
+  //-ms-transform: scale(1.2);
+  //-o-transform: scale(1.2);
+  //transform: scale(1.2);
   text-shadow: 0 0 2px;
 }
 
-h1 {
-  -webkit-transition-duration: 200ms;
-  -moz-transition-duration: 200ms;
-  -ms-transition-duration: 200ms;
-  -o-transition-duration: 200ms;
-  transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
-  cursor: pointer;
+mat-form-field {
+  width: 75%;
+  margin-right: 5%;
+}
+
+img {
+  height: 200px;
+  object-fit: cover;
 }
 
 #beers {
@@ -48,4 +48,36 @@ h1 {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.small {
+  font-size: 12pt;
+}
+
+#header {
+  min-height: 100px;
+}
+
+#navbar {
+  background-color: green;
+}
+
+#mainContent {
+  background-color: blue;
+}
+
+#aside {
+  background-color: orange;
+}
+
+#footer1, #footer2, #footer3 {
+  background-color: cyan;
+}
+
+.container {
+  margin: 0.5%;
+}
+
+.user-button {
+  padding: 5%;
 }

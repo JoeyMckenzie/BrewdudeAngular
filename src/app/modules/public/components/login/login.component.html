@@ -32,8 +32,10 @@
 
       <!-- Create/Cancel buttons -->
       <mat-card-actions align="center">
-        <button mat-raised-button type="submit" color="primary" [disabled]="!loginForm.valid">Create</button>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!loginForm.valid">Login</button>
         <button mat-raised-button type="button" color="warn" (click)="onCancel()">Cancel</button>
+        <button mat-raised-button type="button" color="accent" (click)="testLoginError()">Test Error</button>
+        <button mat-raised-button type="button" color="primary" (click)="openInProgressDialog('Scanning for fakes...')">Dialog</button>
       </mat-card-actions>
     </form>
 

@@ -1,41 +1,47 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="height: 100vh;">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span><a routerLink="/" mat-button><h3 class="bungee">Brewdude</h3></a></span>
-      <div fxShow="true" fxHide.lt-md="true">
-        <a routerLink="/secure/beers" mat-button><mat-icon>local_drink</mat-icon> Beers</a>
-        <a routerLink="/" mat-button><mat-icon>home</mat-icon> Breweries</a>
-      </div>
-      <span class="spacer"></span>
-      <div fxShow="true" fxHide.lt-md="true">
-        <a routerLink="/public/register" mat-button><mat-icon>check_circle</mat-icon> Register</a>
-        <a routerLink="/public/login" mat-button><mat-icon>account_circle</mat-icon> Login</a>
-      </div>
-      <div fxShow="true" fxHide.gt-sm="true">
-        <button mat-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<!--<div style="height: 100vh;">-->
+  <!--<mat-toolbar color="primary">-->
+    <!--<mat-toolbar-row>-->
+      <!--<span><a routerLink="/" mat-button><h3 class="bungee">Brewdude</h3></a></span>-->
+      <!--<div fxShow="true" fxHide.lt-md="true">-->
+        <!--<a routerLink="/secure/beers" mat-button><mat-icon>local_drink</mat-icon> Beers</a>-->
+        <!--<a routerLink="/" mat-button><mat-icon>home</mat-icon> Breweries</a>-->
+      <!--</div>-->
+      <!--<span class="spacer"></span>-->
+      <!--<div *ngIf="!currentUser" fxShow="true" fxHide.lt-md="true">-->
+        <!--<a mat-button>{{ currentUser }}</a>-->
+        <!--<a routerLink="/public/register" mat-button><mat-icon>check_circle</mat-icon> Register</a>-->
+        <!--<a routerLink="/public/login" mat-button><mat-icon>account_circle</mat-icon> Login</a>-->
+      <!--</div>-->
+      <!--<div *ngIf="currentUser" fxShow="true" fxHide.lt-md="true">-->
+        <!--<a mat-button>{{ currentUser }}</a>-->
+        <!--<a routerLink="/" mat-button><mat-icon>verified_user</mat-icon> {{ currentUser.username }}</a>-->
+        <!--<a (click)="logout()" mat-button><mat-icon>exit_to_app</mat-icon> Logout</a>-->
+      <!--</div>-->
+      <!--<div fxShow="true" fxHide.gt-sm="true">-->
+        <!--<button mat-button (click)="sidenav.toggle()">-->
+          <!--<mat-icon>menu</mat-icon>-->
+        <!--</button>-->
+      <!--</div>-->
+    <!--</mat-toolbar-row>-->
+  <!--</mat-toolbar>-->
 
-  <mat-sidenav-container fxFlexFill class="example-container">
-    <mat-sidenav #sidenav fxLayout="column">
-      <div fxLayout="column">
-        <a (click)="sidenav.toggle()" href="#" mat-button></a>
-        <a routerLink="/secure/beers" mat-button><mat-icon>home</mat-icon> Beers</a>
-        <a routerLink="/" mat-button><mat-icon>local_drink</mat-icon> Breweries</a>
-        <a routerLink="/public/register" mat-button><mat-icon>check_circle</mat-icon> Register</a>
-        <a routerLink="/public/login" mat-button><mat-icon>account_circle</mat-icon> Login</a>
-      </div>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-      <br/>
-      <app-footer></app-footer>
-      <br/>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
-
+  <!--<mat-sidenav-container fxFlexFill class="example-container">-->
+    <!--<mat-sidenav #sidenav fxLayout="column">-->
+      <!--<div fxLayout="column">-->
+        <!--<a (click)="sidenav.toggle()" href="#" mat-button></a>-->
+        <!--<a routerLink="/secure/beers" mat-button><mat-icon>home</mat-icon> Beers</a>-->
+        <!--<a routerLink="/" mat-button><mat-icon>local_drink</mat-icon> Breweries</a>-->
+        <!--<a routerLink="/public/register" mat-button><mat-icon>check_circle</mat-icon> Register</a>-->
+        <!--<a routerLink="/public/login" mat-button><mat-icon>account_circle</mat-icon> Login</a>-->
+      <!--</div>-->
+    <!--</mat-sidenav>-->
+    <!--<mat-sidenav-content>-->
+      <!--<router-outlet></router-outlet>-->
+      <!--<br/>-->
+      <!--<app-footer></app-footer>-->
+      <!--<br/>-->
+    <!--</mat-sidenav-content>-->
+  <!--</mat-sidenav-container>-->
+<!--</div>-->
+<app-navbar></app-navbar>

@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {SecuredUser} from "../../../../common/models/secured-user";
-import {UserLogin} from "../../../../common/models/user-login";
-import {MatBottomSheet, MatDialog} from "@angular/material";
-import {LoginErrorComponent} from "../login-error/login-error.component";
-import {first} from "rxjs/operators";
-import {InProgressComponent} from "../in-progress/in-progress.component";
-import {AuthenticationService} from "../../../../common/services/authentication/authentication.service";
-import {ErrorMessageHelper} from "../../../../common/helpers/error-message-helper";
-import {BottomSheetRefErrorComponent} from "../bottom-sheet-ref-error/bottom-sheet-ref-error.component";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { SecuredUser } from "../../../../common/models/secured-user";
+import { UserLogin } from "../../../../common/models/user-login";
+import { first } from "rxjs/operators";
+import { AuthenticationService } from "../../../../common/services/authentication/authentication.service";
+import { MessageService } from "../../../../common/services/message/message.service";
+import { ErrorMessageHelper } from "../../../../common/helpers/error-message-helper";
 
 @Component({
   selector: 'app-login',
@@ -20,6 +17,7 @@ import {BottomSheetRefErrorComponent} from "../bottom-sheet-ref-error/bottom-she
 })
 export class LoginComponent implements OnInit {
 
+  /** Public Members **/
   public loginForm: FormGroup;
   public loginInvalid: boolean;
   public submitted: boolean;
@@ -29,9 +27,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private bottomSheet: MatBottomSheet,
     private authenticationService: AuthenticationService,
-    private dialog: MatDialog,
+    private messageService: MessageService
   ) {
     this.authenticationService.currentUser.subscribe(value => this.currentUser = value);
   }
@@ -39,17 +36,17 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      // password: ['', [Validators.required, Validators.pattern(PasswordService.PasswordRegex)]]
       password: ['', Validators.required]
     });
   }
 
-  get f() {
+  /** Convenience getter for form controls **/
+  get formControls() {
     return this.loginForm.controls;
   }
 
   public async submitUserLogin() {
-    this.openInProgressDialog("Scanning for fakes...");
+    this.messageService.openInProgressDialogMessage("Scanning for fakes...");
     this.submitted = true;
 
     if (this.loginForm.invalid) {
@@ -58,35 +55,23 @@ export class LoginComponent implements OnInit {
     }
 
     let userLogin: UserLogin = {
-      username: this.f.username.value,
-      password: this.f.password.value,
+      username: this.formControls.username.value,
+      password: this.formControls.password.value,
     };
 
     await this.authenticationService.loginUser(userLogin)
       .pipe(first())
       .subscribe(
         data => {
-          this.dialog.closeAll();
-          console.log("Login successful for user " + this.currentUser.username);
-          this.router.navigateByUrl('/').then(value => {
-            console.log('routing to home');
-          });
+          this.messageService.closeOpenMessages();
+          this.router.navigateByUrl('/');
         },
         error => {
-          this.dialog.closeAll();
-          const errorResponse: string = ErrorMessageHelper.getErrorMessageResponse(error.error);
-          this.bottomSheet.open(BottomSheetRefErrorComponent, {
-            data: errorResponse
-          });
+          this.messageService.closeOpenMessages();
+          const errorMessage: string = ErrorMessageHelper.getErrorMessageResponse(error.error);
+          this.messageService.openErrorMessage(errorMessage);
         }
       );
-  }
-
-  private openInProgressDialog(message: string): void {
-    this.dialog.open(InProgressComponent, {
-      width: '250px',
-      data: message
-    });
   }
 
   public toggleHidePassword(): void {
@@ -98,6 +83,6 @@ export class LoginComponent implements OnInit {
   }
 
   public testLoginError(): void {
-    this.bottomSheet.open(LoginErrorComponent);
+    this.messageService.openErrorMessage("... looks like something unexpected happened, try logging in again.");
   }
 }

@@ -15,7 +15,7 @@
         <mat-form-field>
           <input matInput type="text" placeholder="Username" formControlName="username" id="username">
           <mat-hint align="end">* Required field</mat-hint>
-          <mat-error *ngIf="f.username.errors && f.username.errors.required">Username is required</mat-error>
+          <mat-error *ngIf="formControls.username.errors && formControls.username.errors.required">Username is required</mat-error>
         </mat-form-field>
 
         <!-- Password -->
@@ -26,7 +26,7 @@
             <mat-icon *ngIf="!hidePassword" (click)="toggleHidePassword()">visibility</mat-icon>
           </span>
           <mat-hint align="end">* Required field</mat-hint>
-          <mat-error *ngIf="f.password.errors && f.password.errors.required">Password is required</mat-error>
+          <mat-error *ngIf="formControls.password.errors && formControls.password.errors.required">Password is required</mat-error>
         </mat-form-field>
       </mat-card-content>
 
@@ -35,7 +35,6 @@
         <button mat-raised-button type="submit" color="primary" [disabled]="!loginForm.valid">Login</button>
         <button mat-raised-button type="button" color="warn" (click)="onCancel()">Cancel</button>
         <button mat-raised-button type="button" color="accent" (click)="testLoginError()">Test Error</button>
-        <button mat-raised-button type="button" color="primary" (click)="openInProgressDialog('Scanning for fakes...')">Dialog</button>
       </mat-card-actions>
     </form>
 

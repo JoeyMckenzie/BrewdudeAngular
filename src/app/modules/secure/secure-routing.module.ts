@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {BeersComponent} from "./components/beers/beers.component";
-import {AuthGuard} from "../../common/helpers/auth-guard";
+import { BeersComponent } from "./components/beers/beers.component";
 
 const routes: Routes = [
   { path: 'beers', component: BeersComponent },

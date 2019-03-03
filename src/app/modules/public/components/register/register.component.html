@@ -15,29 +15,29 @@
         <mat-form-field>
           <input matInput type="text" placeholder="First Name" formControlName="firstName" id="firstName">
           <mat-hint align="end">* Required field</mat-hint>
-          <mat-error *ngIf="f.firstName.errors && f.firstName.errors.required">First name is required</mat-error>
+          <mat-error *ngIf="formControls.firstName.errors && formControls.firstName.errors.required">First name is required</mat-error>
         </mat-form-field>
 
         <!-- Last name -->
         <mat-form-field>
           <input matInput type="text" placeholder="Last Name" formControlName="lastName" id="lastName">
           <mat-hint align="end">* Required field</mat-hint>
-          <mat-error *ngIf="f.lastName.errors && f.lastName.errors.required">Last name is required</mat-error>
+          <mat-error *ngIf="formControls.lastName.errors && formControls.lastName.errors.required">Last name is required</mat-error>
         </mat-form-field>
 
         <!-- Email -->
         <mat-form-field>
           <input matInput type="email" placeholder="Email" formControlName="email" id="email">
           <mat-hint align="end">* Required field</mat-hint>
-          <mat-error *ngIf="f.email.errors && f.email.errors.required">Email is required</mat-error>
-          <mat-error *ngIf="f.email.errors && f.email.errors.email">Invalid email address</mat-error>
+          <mat-error *ngIf="formControls.email.errors && formControls.email.errors.required">Email is required</mat-error>
+          <mat-error *ngIf="formControls.email.errors && formControls.email.errors.email">Invalid email address</mat-error>
         </mat-form-field>
 
         <!-- Username -->
         <mat-form-field>
           <input matInput type="text" placeholder="Username" formControlName="username" id="username">
           <mat-hint align="end">* Required field</mat-hint>
-          <mat-error *ngIf="f.username.errors && f.username.errors.required">Username is required</mat-error>
+          <mat-error *ngIf="formControls.username.errors && formControls.username.errors.required">Username is required</mat-error>
         </mat-form-field>
 
         <!-- Password -->
@@ -48,15 +48,15 @@
             <mat-icon *ngIf="!hidePassword" (click)="toggleHidePassword()">visibility</mat-icon>
           </span>
           <mat-hint align="end">* Must be between 8 and 20 characters and contain: one lowercase, one uppercase, one number, and a special character</mat-hint>
-          <mat-error *ngIf="f.password.errors && f.password.errors.pattern">Password does not meet complexity requirements</mat-error>
+          <mat-error *ngIf="formControls.password.errors && formControls.password.errors.pattern">Password does not meet complexity requirements</mat-error>
         </mat-form-field>
 
         <!-- Password confirmation -->
         <mat-form-field>
           <input style="position: relative;" matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password confirmation" formControlName="passwordConfirmation" id="passwordConfirmation">
           <mat-hint align="end">* Required field</mat-hint>
-          <mat-error *ngIf="f.passwordConfirmation.errors && f.passwordConfirmation.errors.required">Password confirmation is required</mat-error>
-          <mat-error *ngIf="f.passwordConfirmation.errors && f.passwordConfirmation.errors.mustMatch">Your password must match with the password above</mat-error>
+          <mat-error *ngIf="formControls.passwordConfirmation.errors && formControls.passwordConfirmation.errors.required">Password confirmation is required</mat-error>
+          <mat-error *ngIf="formControls.passwordConfirmation.errors && formControls.passwordConfirmation.errors.mustMatch">Your password must match with the password above</mat-error>
         </mat-form-field>
       </mat-card-content>
 

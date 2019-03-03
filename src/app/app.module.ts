@@ -8,16 +8,16 @@ import { MaterialModule } from "./modules/material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { PublicModule } from "./modules/public/public.module";
 import { HttpClientModule } from "@angular/common/http";
-import {SecureModule} from "./modules/secure/secure.module";
-import {AuthGuard} from "./common/helpers/auth-guard";
-import {NavbarComponent} from "./common/components/navbar/navbar.component";
-import {HomeComponent} from "./common/components/home/home.component";
-import {FooterComponent} from "./common/components/footer/footer.component";
-import { BottomSheetErrorComponent } from './common/components/bottom-sheet-error/bottom-sheet-error.component';
-import {AuthenticationService} from "./common/services/authentication/authentication.service";
-import {ConfigurationService} from "./common/services/configuration/configuration.service";
-import {ErrorMessageHandlingService} from "./common/services/error-message-handling/error-message-handling.service";
-import {AuthGuardService} from "./common/services/auth-guard/auth-guard.service";
+import { SecureModule } from "./modules/secure/secure.module";
+import { NavbarComponent } from "./common/components/navbar/navbar.component";
+import { HomeComponent } from "./common/components/home/home.component";
+import { FooterComponent } from "./common/components/footer/footer.component";
+import { AuthenticationService } from "./common/services/authentication/authentication.service";
+import { ConfigurationService } from "./common/services/configuration/configuration.service";
+import { AuthGuardService } from "./common/services/auth-guard/auth-guard.service";
+import { BottomSheetErrorComponent } from "./common/components/messages/bottom-sheet-error/bottom-sheet-error.component";
+import { DialogComponent } from "./common/components/messages/dialog/dialog.component";
+import {MessageService} from "./common/services/message/message.service";
 
 @NgModule({
   declarations: [
@@ -26,6 +26,11 @@ import {AuthGuardService} from "./common/services/auth-guard/auth-guard.service"
     FooterComponent,
     NavbarComponent,
     BottomSheetErrorComponent,
+    DialogComponent,
+  ],
+  entryComponents: [
+    BottomSheetErrorComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import {AuthGuardService} from "./common/services/auth-guard/auth-guard.service"
     AuthGuardService,
     AuthenticationService,
     ConfigurationService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

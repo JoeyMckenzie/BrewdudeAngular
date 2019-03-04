@@ -7,6 +7,7 @@ import { first } from "rxjs/operators";
 import { AuthenticationService } from "../../../../common/services/authentication/authentication.service";
 import { MessageService } from "../../../../common/services/message/message.service";
 import { ErrorMessageHelper } from "../../../../common/helpers/error-message-helper";
+import {PublicConstants} from "../../../../common/constants/public.constants";
 
 @Component({
   selector: 'app-login',
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   public async submitUserLogin() {
-    this.messageService.openInProgressDialogMessage("Scanning for fakes...");
+    this.messageService.openInProgressDialogMessage(PublicConstants.loginInProgress);
     this.submitted = true;
 
     if (this.loginForm.invalid) {
@@ -83,6 +84,6 @@ export class LoginComponent implements OnInit {
   }
 
   public testLoginError(): void {
-    this.messageService.openErrorMessage("... looks like something unexpected happened, try logging in again.");
+    this.messageService.openErrorMessage(PublicConstants.registrationSystemError);
   }
 }

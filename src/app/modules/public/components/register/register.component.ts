@@ -70,7 +70,7 @@ export class RegisterComponent implements OnInit {
 
   /** Public Methods **/
   public async submitUserRegistration() {
-    this.messageService.openInProgressDialogMessage("Checking with the bartenders...");
+    this.messageService.openInProgressDialogMessage(PublicConstants.registrationInProgress);
     this.submitted = true;
     this.registrationError = false;
 
@@ -122,6 +122,10 @@ export class RegisterComponent implements OnInit {
     }
     this.registrationError = true;
     this.registrationForm.reset();
-    this.messageService.openErrorMessage("... looks like something unexpected happened, please try registering again.");
+    this.messageService.openErrorMessage(PublicConstants.registrationSystemError);
+  }
+
+  public openInProgressDialog() {
+    this.messageService.openInProgressDialogMessage(PublicConstants.registrationInProgress);
   }
 }

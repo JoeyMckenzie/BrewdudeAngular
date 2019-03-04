@@ -17,7 +17,9 @@ import { ConfigurationService } from "./common/services/configuration/configurat
 import { AuthGuardService } from "./common/services/auth-guard/auth-guard.service";
 import { BottomSheetErrorComponent } from "./common/components/messages/bottom-sheet-error/bottom-sheet-error.component";
 import { DialogComponent } from "./common/components/messages/dialog/dialog.component";
-import {MessageService} from "./common/services/message/message.service";
+import { MessageService } from "./common/services/message/message.service";
+import { InProgressComponent } from "./common/components/messages/in-progress/in-progress.component";
+import { RegistrationSuccessComponent } from "./common/components/messages/registration-success/registration-success.component";
 
 @NgModule({
   declarations: [
@@ -27,10 +29,14 @@ import {MessageService} from "./common/services/message/message.service";
     NavbarComponent,
     BottomSheetErrorComponent,
     DialogComponent,
+    InProgressComponent,
+    RegistrationSuccessComponent
   ],
   entryComponents: [
     BottomSheetErrorComponent,
     DialogComponent,
+    InProgressComponent,
+    RegistrationSuccessComponent
   ],
   imports: [
     BrowserModule,

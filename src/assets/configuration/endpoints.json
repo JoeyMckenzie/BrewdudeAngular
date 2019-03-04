@@ -1,11 +1,13 @@
 {
-  "baseUrl": "https://localhost:5001",
+  "baseUrl": "https://localhost:5001/api",
   "endpoints": {
     "beer": "/beer",
     "brewery": "/breweries",
     "user": "/user",
     "userBeer": "/userbeer",
-    "userBrewery": "/userbrewery"
+    "userBrewery": "/userbrewery",
+    "login": "/login",
+    "register": "/register"
   },
   "modules": {
     "public": "/public",

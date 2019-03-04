@@ -6,6 +6,8 @@ export interface BrewdudeConfiguration {
     user: string;
     userBeer: string;
     userBrewery: string;
+    login: string;
+    register: string;
   }
   modules: {
     public: string;
